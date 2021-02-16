@@ -1,11 +1,15 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
-import Pokegame from "./Pokegame";
+import Form from "./Form";
+import ShoppingList from "./ShoppingList";
+// import Pokegame from "./Pokegame";
 
 function App() {
   return (
     <div className="App">
-      <Pokegame />
+      {/* <Pokegame /> */}
+      <Form />
+      <ShoppingList />
     </div>
   );
 }
