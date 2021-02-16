@@ -9,6 +9,7 @@ export default class BoxContainer extends Component {
       boxes: [],
     };
     this.submit = this.submit.bind(this);
+    this.removeBox = this.removeBox.bind(this);
   }
 
   submit(boxProps) {
@@ -16,14 +17,20 @@ export default class BoxContainer extends Component {
       boxes: [...prevState.boxes, { ...boxProps, id: uuid() }],
     }));
   }
+
+  removeBox(id) {
+    this.setState((st) => ({ boxes: st.boxes.filter((box) => box.id !== id) }));
+  }
   render() {
     let boxes = this.state.boxes.map((box) => {
       return (
         <Box
           key={box.id}
+          id={box.id}
           height={box.height}
           width={box.width}
           color={box.color}
+          removeBox={this.removeBox}
         />
       );
     });
